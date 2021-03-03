@@ -9,11 +9,13 @@
     <ul></ul>
     <script>
       let ul = document.querySelector('ul')
+
       const updateUI = (customers) => {
         let liArray = customers.map((customers) => `<li>${customers.name}</li>`)
         let mj = liArray.join('\n')
         ul.innerHTML = mj
       }
+
       const updateLoc = (location) => {
         let liArray = location.map(
           (location) => `<li>${location.latitude} - ${location.longitude}</li>`
@@ -22,14 +24,14 @@
         ul.innerHTML = mj
       }
       const main = async () => {
-        let hr = await fetch('http://localhost:8080/api/customers')
-        let loc = await fetch('http://localhost:8080/api/location')
+        let hr = await fetch('api/customers')
+        let loc = await fetch('api/locations')
 
         let customers = await hr.json()
         let location = await loc.json()
 
         updateUI(customers)
-        updateUI(location)
+        updateLoc(location)
       }
       main()
     </script>
