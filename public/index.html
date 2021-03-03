@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Frontend stuff</h1>
+    <ul></ul>
+    <script>
+      let ul = document.querySelector('ul')
+      const updateUI = (customers) => {
+        let liArray = customers.map((customers) => `<li>${customers.name}</li>`)
+        let mj = liArray.join('\n')
+        ul.innerHTML = mj
+      }
+      const main = async () => {
+        let hr = await fetch('http://localhost:8080/api/customers')
+        let customers = await hr.json()
+        updateUI(customers)
+      }
+      main()
+    </script>
+  </body>
+</html>
