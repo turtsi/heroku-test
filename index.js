@@ -5,8 +5,8 @@ const port = 8080
 app.use(express.static('public'))
 
 let customers = [
-  { id: 1, name: 'YkäCS' },
-  { id: 2, name: 'RottaCS' },
+  { id: 1, name: 'Jeps' },
+  { id: 2, name: 'Heps' },
 ]
 
 // HTTP GET http://localhost:8080/api/customers
