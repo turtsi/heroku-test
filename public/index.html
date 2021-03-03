@@ -14,10 +14,22 @@
         let mj = liArray.join('\n')
         ul.innerHTML = mj
       }
+      const updateLoc = (location) => {
+        let liArray = location.map(
+          (location) => `<li>${location.latitude} - ${location.longitude}</li>`
+        )
+        let mj = liArray.join('\n')
+        ul.innerHTML = mj
+      }
       const main = async () => {
         let hr = await fetch('http://localhost:8080/api/customers')
+        let loc = await fetch('http://localhost:8080/api/location')
+
         let customers = await hr.json()
+        let location = await loc.json()
+
         updateUI(customers)
+        updateUI(location)
       }
       main()
     </script>
