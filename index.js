@@ -24,6 +24,6 @@ app.get('/api/customers', (req, res) => {
 // HTTP GET http://localhost:8080/api/locations
 app.get('/api/locations', (req, res) => {
   var str = JSON.stringify(database, null, 2)
-  res.contentType = 'application/json'
+  res.type('application/json')
   res.send(str)
 })
